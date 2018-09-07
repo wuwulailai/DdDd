@@ -16,9 +16,11 @@ public class DashboardViewController : UITabBarController {
         super.viewDidLoad()
         
         let homeVC   = UINavigationController(rootViewController: HomeViewController())
+        homeVC.tabBarItem.title = "相册"
         let cameraVC = UINavigationController(rootViewController: CameraViewController())
+        cameraVC.tabBarItem.title = "相机"
         let mineVC   = UINavigationController(rootViewController: MineViewController())
-        
+        mineVC.tabBarItem.title = "我的"
         self.viewControllers = [homeVC, cameraVC, mineVC]
     }
 }
