@@ -166,7 +166,7 @@ class AlbumListController: UICollectionViewController {
         
         detailController.title = myCollection.name
         detailController.collection = myCollection
-        detailController.hidesBottomBarWhenPushed = true
+        //detailController.hidesBottomBarWhenPushed = true
         
         detailController.hasSelectedAsset = { [weak self] (asset) -> Bool in
             guard (asset != nil), (asset?.localIdentifier != nil) else {

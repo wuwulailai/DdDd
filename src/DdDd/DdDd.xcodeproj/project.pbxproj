@@ -418,6 +418,7 @@
 		266D2387212D5CA500157BCB /* SL(Service Layer) */ = {
 			isa = PBXGroup;
 			children = (
+				26720AA82142852E006BDE1A /* AlbumCore */,
 			);
 			path = "SL(Service Layer)";
 			sourceTree = "<group>";
@@ -425,7 +426,6 @@
 		266D2388212D5CC800157BCB /* DAL(Data Access Layer) */ = {
 			isa = PBXGroup;
 			children = (
-				26720AA82142852E006BDE1A /* AlbumCore */,
 			);
 			path = "DAL(Data Access Layer)";
 			sourceTree = "<group>";
