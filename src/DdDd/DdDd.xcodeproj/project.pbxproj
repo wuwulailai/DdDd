@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2622BE072147750700813C04 /* UIImagePickerController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2622BE062147750600813C04 /* UIImagePickerController+Extension.swift */; };
 		26247C12212D9A23001E5A0C /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26247C11212D9A23001E5A0C /* UIColorExtensions.swift */; };
 		26247C15212D9B16001E5A0C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26247C14212D9B16001E5A0C /* UIConstants.swift */; };
 		264C31BC213D4E700063DFFD /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264C31B3213D4E700063DFFD /* Log.framework */; };
@@ -22,7 +23,7 @@
 		266D2314212C1A1B00157BCB /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D2313212C1A1B00157BCB /* DashboardViewController.swift */; };
 		266D2316212C1A3100157BCB /* NewFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D2315212C1A3100157BCB /* NewFeatureViewController.swift */; };
 		266D231B212C222900157BCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D231A212C222900157BCB /* HomeViewController.swift */; };
-		266D231D212C225300157BCB /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D231C212C225300157BCB /* CameraViewController.swift */; };
+		266D231D212C225300157BCB /* FunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D231C212C225300157BCB /* FunViewController.swift */; };
 		266D231F212C228500157BCB /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D231E212C228500157BCB /* MineViewController.swift */; };
 		266D2324212C467900157BCB /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D2321212C467800157BCB /* GifImage.swift */; };
 		266D2325212C467900157BCB /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266D2322212C467800157BCB /* PageControl.swift */; };
@@ -136,6 +137,7 @@
 
 /* Begin PBXFileReference section */
 		0D1F4D68796A687E8AC83264 /* Pods_DdDd.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DdDd.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2622BE062147750600813C04 /* UIImagePickerController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Extension.swift"; sourceTree = "<group>"; };
 		26247C11212D9A23001E5A0C /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		26247C14212D9B16001E5A0C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		264C31B3213D4E700063DFFD /* Log.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Log.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,7 +154,7 @@
 		266D2313212C1A1B00157BCB /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		266D2315212C1A3100157BCB /* NewFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureViewController.swift; sourceTree = "<group>"; };
 		266D231A212C222900157BCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		266D231C212C225300157BCB /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		266D231C212C225300157BCB /* FunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunViewController.swift; sourceTree = "<group>"; };
 		266D231E212C228500157BCB /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		266D2321212C467800157BCB /* GifImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		266D2322212C467800157BCB /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -334,12 +336,12 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		266D2318212C221000157BCB /* Camera */ = {
+		266D2318212C221000157BCB /* Fun */ = {
 			isa = PBXGroup;
 			children = (
-				266D231C212C225300157BCB /* CameraViewController.swift */,
+				266D231C212C225300157BCB /* FunViewController.swift */,
 			);
-			path = Camera;
+			path = Fun;
 			sourceTree = "<group>";
 		};
 		266D2319212C221800157BCB /* Mine */ = {
@@ -373,7 +375,7 @@
 				26F76293212AE708001A8435 /* LaunchScreen.storyboard */,
 				266D2320212C467800157BCB /* GuidePage */,
 				266D2319212C221800157BCB /* Mine */,
-				266D2318212C221000157BCB /* Camera */,
+				266D2318212C221000157BCB /* Fun */,
 				266D2317212C220700157BCB /* Home */,
 				266D2312212C175200157BCB /* Dashboard */,
 			);
@@ -409,6 +411,7 @@
 		266D2342212D46FB00157BCB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2622BE062147750600813C04 /* UIImagePickerController+Extension.swift */,
 				26247C11212D9A23001E5A0C /* UIColorExtensions.swift */,
 				266D2343212D470700157BCB /* photon-colors.swift */,
 			);
@@ -858,9 +861,7 @@
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-DdDd/Pods-DdDd-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
@@ -876,9 +877,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHIPageControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
@@ -935,6 +934,7 @@
 				26720A96214280E1006BDE1A /* AlbumDetailController.swift in Sources */,
 				266D2340212D44F100157BCB /* ThemedWidgets.swift in Sources */,
 				26720A9B214280E1006BDE1A /* AlbumListCollectionCell.swift in Sources */,
+				2622BE072147750700813C04 /* UIImagePickerController+Extension.swift in Sources */,
 				26720A9A214280E1006BDE1A /* AlbumSelectCountPanView.swift in Sources */,
 				26720A92214280E1006BDE1A /* UIColor+extension.swift in Sources */,
 				26720A9D214280E1006BDE1A /* AlbumHomeCell.swift in Sources */,
@@ -951,7 +951,7 @@
 				26247C15212D9B16001E5A0C /* UIConstants.swift in Sources */,
 				266D2326212C467900157BCB /* GuidePageView.swift in Sources */,
 				26720A93214280E1006BDE1A /* UIImage+extension.swift in Sources */,
-				266D231D212C225300157BCB /* CameraViewController.swift in Sources */,
+				266D231D212C225300157BCB /* FunViewController.swift in Sources */,
 				26720A97214280E1006BDE1A /* AlbumListViewModel.swift in Sources */,
 				26720AA5214280E1006BDE1A /* LimitRightsOverlayerView.swift in Sources */,
 				26720AAE2142852E006BDE1A /* AlbumFile.swift in Sources */,
@@ -1045,7 +1045,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Log/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1074,7 +1074,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Log/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1293,7 +1293,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Log/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

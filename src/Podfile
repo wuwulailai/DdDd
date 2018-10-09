@@ -4,6 +4,9 @@ inhibit_all_warnings!
 
 workspace 'DdDd'
 
+# Generated duplicate UUIDs
+install! 'cocoapods', :deterministic_uuids => false
+
 project 'DdDd/DdDd.xcodeproj'
 
 target 'DdDd' do
@@ -24,12 +27,10 @@ target 'DdDd' do
 
   # 工具
   pod 'CryptoSwift'
-  pod 'HandyJSON', '4.1.1'
   pod 'SQLite.swift', '~> 0.11.5'
   pod 'Toast-Swift', '~> 3.0.1'
   pod 'SVProgressHUD', '~> 2.2.5'
   pod 'SwiftMessages'
-  pod 'CHIPageControl'
   pod 'Fabric'
   pod 'Crashlytics'
 

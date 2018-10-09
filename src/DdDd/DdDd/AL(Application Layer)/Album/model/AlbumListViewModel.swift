@@ -44,14 +44,7 @@ class AlbumListViewModel: NSObject {
         
         var collections: [AlbumCollection] = Array.init()
         
-        
-        //ios 8
-        self.fetchAlbum(with: PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.smartAlbumUserLibrary, options: nil, toArray: &collections, reName:"相机胶卷")
-        
-        self.fetchAlbum(with: PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.smartAlbumVideos, options: nil, toArray: &collections, reName:"视频")
-        
-        //ios9以上
-        self.fetchAlbum(with: PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.smartAlbumScreenshots, options: nil, toArray: &collections, reName:"屏幕截图")
+        self.fetchAlbum(with: PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.any, options: nil, toArray: &collections, reName:nil)
         
         self.fetchAlbum(with: PHAssetCollectionType.album, subtype: PHAssetCollectionSubtype.albumRegular, options: nil, toArray: &collections, reName:nil)
         

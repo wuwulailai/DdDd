@@ -17,11 +17,16 @@ public class DashboardViewController : UITabBarController {
         
         let homeVC   = UINavigationController(rootViewController: HomeViewController())
         homeVC.tabBarItem.title = "相册"
-        let cameraVC = UINavigationController(rootViewController: CameraViewController())
-        cameraVC.tabBarItem.title = "相机"
+        homeVC.tabBarItem.image = #imageLiteral(resourceName: "mine_tab_icon")
+        
+        let funVC    = UINavigationController(rootViewController: FunViewController())
+        funVC.tabBarItem.title = "有趣"
+        funVC.tabBarItem.image = #imageLiteral(resourceName: "mine_tab_icon")
+        
         let mineVC   = UINavigationController(rootViewController: MineViewController())
         mineVC.tabBarItem.title = "我的"
-        self.viewControllers = [homeVC, cameraVC, mineVC]
+        mineVC.tabBarItem.image = #imageLiteral(resourceName: "mine_tab_icon")
+        self.viewControllers = [homeVC, funVC, mineVC]
     }
 }
 

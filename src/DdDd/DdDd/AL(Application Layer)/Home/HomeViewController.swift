@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         button.rx.tap
             .subscribeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] in
-            let albumListController = AlbumListController.init(collectionViewLayout: UICollectionViewFlowLayout.init())
+            let albumListController = AlbumListController(collectionViewLayout: UICollectionViewFlowLayout.init())
             albumListController.selectDoneBlock = { [weak albumListController] (albumController, selectedFiles) in
                 albumListController?.navigationController?.popViewController(animated: true)
             }

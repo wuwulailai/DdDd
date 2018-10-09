@@ -17,6 +17,24 @@ private let reuseIdentifier = "AlbumHomeCell"
 //相册列表，包含智能相册，用户相册，可自定义显示哪些
 class AlbumListController: UICollectionViewController {
 
+    // Life Sycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "自定义相册"
+        self.setupCollectionView()
+        self.checkAutorizationAndLoadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.refreshSelectedCount(false)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     //右侧完成按钮
     var selectDoneBlock: AlbumNavItemBlock? {
         didSet {
@@ -100,25 +118,6 @@ class AlbumListController: UICollectionViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = "自定义相册"
-        self.setupCollectionView()
-        self.checkAutorizationAndLoadData()
-//        PHPhotoLibrary.shared().register(self)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.refreshSelectedCount(false)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // MARK: - 刷新选中个数
     func refreshSelectedCount(_ animation: Bool) -> Void {
         var title = "完成"
@@ -146,7 +145,7 @@ class AlbumListController: UICollectionViewController {
     
     // MARK: - 相册详情页面
     fileprivate  lazy var detailController: AlbumDetailController = {
-        var controller = AlbumDetailController.init(collectionViewLayout: UICollectionViewFlowLayout())
+        var controller = AlbumDetailController(collectionViewLayout: UICollectionViewFlowLayout())
         return controller
     }()
 
@@ -166,7 +165,6 @@ class AlbumListController: UICollectionViewController {
         
         detailController.title = myCollection.name
         detailController.collection = myCollection
-        //detailController.hidesBottomBarWhenPushed = true
         
         detailController.hasSelectedAsset = { [weak self] (asset) -> Bool in
             guard (asset != nil), (asset?.localIdentifier != nil) else {
@@ -175,6 +173,7 @@ class AlbumListController: UICollectionViewController {
             if (self?.viewModel.selectedItems[asset?.localIdentifier ?? ""] != nil) {
                 return true
             }
+            
             return false
         }
         
@@ -189,10 +188,7 @@ class AlbumListController: UICollectionViewController {
                 }
             } else {
                 
-                if self != nil && self!.viewModel.selectedItems.count >= 20 {
-                    self?.view.makeToast("最多只能选择20个文件")
-                    hasSelected =  false
-                } else if let identitier = file.fileIdentifier {
+                if let identitier = file.fileIdentifier {
                     self?.viewModel.selectedItems.updateValue(file, forKey: identitier)
                     hasSelected =  true
                 } else {
@@ -268,24 +264,16 @@ class AlbumListController: UICollectionViewController {
 extension AlbumListController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.view.frame.size.width - 60)/2.0
+        let width = (self.view.frame.size.width - 10)/2.0
         return CGSize.init(width: width, height: width + 205 - 158)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
-            return UIEdgeInsetsMake(20.0, 20.0, 0.0, 20.0)
+            return UIEdgeInsetsMake(2.0, 0.0, 2.0, 0.0)
         }else {
-            return UIEdgeInsetsMake(0.0, 20.0, 0.0, 20.0)
+            return UIEdgeInsetsMake(0.0, 2.0, 0.0, 2.0)
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.0
     }
 }
 

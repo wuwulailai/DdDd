@@ -15,6 +15,32 @@ private let reuseIdentifier = "AlbumDetailCollectionViewCell"
 //九宫格形式显示相册内容，图片/视频
 class AlbumDetailController: UICollectionViewController {
 
+    // Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let cellNib: UINib = UINib.init(nibName: reuseIdentifier, bundle: Bundle.main)
+        self.collectionView!.register(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView?.backgroundColor = UIColor.white
+        self.collectionView?.backgroundView = self.blankView
+        self.view.backgroundColor = .white
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setupMainUI()
+        self.refreshSelectedCount(false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
     var collection: AlbumCollection? {
         didSet {
             self.collection?.registerFetchResultChange(self)
@@ -179,31 +205,6 @@ class AlbumDetailController: UICollectionViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let cellNib: UINib = UINib.init(nibName: reuseIdentifier, bundle: Bundle.main)
-        self.collectionView!.register(cellNib, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView?.backgroundColor = UIColor.white
-        self.collectionView?.backgroundView = self.blankView
-        self.view.backgroundColor = .white
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.setupMainUI()
-        self.refreshSelectedCount(false)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     private func setupMainUI() -> Void {
         if self.footerView != nil {
             self.collectionView?.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 50.0)
@@ -350,5 +351,12 @@ extension AlbumDetailController: FetchResultChangeDetailObserver {
         if collection.isEqual(self.collection) {
             self.photolibraryChange(withDetail: detail)
         }
+    }
+}
+
+// MARK - UICollectionViewDelegate
+extension AlbumDetailController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }
