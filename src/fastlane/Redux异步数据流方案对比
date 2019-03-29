@@ -1,0 +1,23 @@
+Redux异步数据流方案对比
+Redux的核心思想是严格的单向数据流，只能通过dispatch（action）的方式修改store，流程
+view -> action -> reducer -> store
+
+而在实际业务中往往有大量异步场景，最原始的做法是React的初始化异步流，通过callback来调用dispatch（action），这样会把view层和model层混杂在一起，耦合严重，后期维护困难。
+
+中间件（middleware）改写了dispatch方法，可以灵活控制dispatch的时机，这对异步场景非常有效。Redux作者也建议用中间件来处理异步流。
+
+# 常见的中间件：
+redux-thunk、
+redux-promise、
+redux-saga
+redux-observable
+
+# redux-thunk：简单粗暴
+原理：Redux本身只会处理同步的简单对象action
+通过redux-thunk拦截处理函数（function）类型的action
+通过回调来控制触发普通action，从而达到异步的目的。
+
+# redux-promise：将 promise 贯彻到底
+
+# redux-saga：精准而优雅
+

@@ -18,18 +18,88 @@ default_platform(:ios)
 platform :ios do
   desc "Description of what the lane does"
 
-  lane :distribution do
+  # 打App Store包
+  lane :appstore_ipa do
     # add actions here: https://docs.fastlane.tools/actions
     # 增加build版本号
     # increment_build_number
+
+    # 导出方式
+    export_method = "app-store"   
+
+    # 导出路径
+    output_directory = "../build/app-store/#{Time.now.strftime('%Y%m%H%M%S')}/"
+
+    scheme_name = "DdDd"
+
+    # 导出名称
+    output_name = "#{scheme_name}_#{Time.now.strftime('%Y%m%H%M%S')}.ipa"
     gym(
     	clean:true, #打包前clean项目
-		scheme:"DdDd", #schema
-		export_method:"app-store",  #导出方式
+		scheme:scheme_name,   #schema
+		export_method: export_method,  #导出方式
 		configuration: "Distribution", #环境
-		output_directory:"./build", #ipa的存放目录
-		archive_path:"./Archive", 
+		output_directory:output_directory, #ipa的存放目录
+		output_name: output_name, 
+		archive_path:"#{output_directory}Archive",
 		export_xcargs:"-allowProvisioningUpdates"
 	)
   end
+ 
+  # 打ad-hoc包
+  lane: adhoc do
+
+    # 导出方式
+    export_method = "app-store"  
+
+    scheme_name = "DdDd"
+    # build_app是gym的别名,可以换成gym
+    build_app(
+        schema: scheme_name,
+        export_method: export_method
+    )
+
+    # 上传到蒲公英
+    #pgyer(api_key: "", user_key: "")
+  end
+
+  # 下载provisioning_profile
+  lane: adhoc_profile do
+  end
+
+
+
+  # 上传ipa到iTunesConnect
+  lane: upload do 
+
+    metadata_path = "./metadata"
+
+    deliver(
+        submit_for_review: false,
+        force: true,
+        ignore_language_directory_validation: true,
+        metadata_path: metadata_path
+        )
+  end
+
+  # 添加Devices到AppleDeveloper
+  lane: add_device do
+    register_devices(
+        devices_file: "./devices.txt"
+        )
+  end
+
+  # 生成不同尺寸的icon
+  lane: generate_icon do
+
+    appiconfile = './AppIcon.png'
+
+    appiconpath = 'DdDd/Assets.xcassets'
+    appicon(
+          appicon_image_file: appiconfile,
+          appicon_devices: [:iphone, :ios_marketing],
+          appicon_path: appiconpath
+        )
+  end
+
 end
