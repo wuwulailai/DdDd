@@ -21,31 +21,38 @@ or alternatively using `brew cask install fastlane`
 fastlane ios appstore_ipa
 ```
 Description of what the lane does
+
+打App Store包
 ### ios adhoc
 ```
 fastlane ios adhoc
 ```
-
+打ad-hoc包
 ### ios adhoc_profile
 ```
 fastlane ios adhoc_profile
 ```
-
+下载provisioning_profile
 ### ios deploy
 ```
 fastlane ios deploy
 ```
-
+上传ipa到iTunesConnect，发布到App Store
 ### ios add_device
 ```
 fastlane ios add_device
+```
+
+### ios snap_shot
+```
+fastlane ios snap_shot
 ```
 
 ### ios app_icon
 ```
 fastlane ios app_icon
 ```
-
+生成不同尺寸的icon
 
 ----
 
