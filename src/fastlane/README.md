@@ -28,11 +28,16 @@ Description of what the lane does
 fastlane ios adhoc
 ```
 打ad-hoc包
-### ios adhoc_profile
+### ios get_profile
 ```
-fastlane ios adhoc_profile
+fastlane ios get_profile
 ```
-下载provisioning_profile
+私有任务，下载provisioning_profile通用Action
+### ios all_profile
+```
+fastlane ios all_profile
+```
+下载所有provisioning_profile
 ### ios deploy
 ```
 fastlane ios deploy
@@ -48,11 +53,26 @@ fastlane ios add_device
 fastlane ios snap_shot
 ```
 
+### ios beta_pgyer
+```
+fastlane ios beta_pgyer
+```
+打包并上传测试版至蒲公英
 ### ios app_icon
 ```
 fastlane ios app_icon
 ```
 生成不同尺寸的icon
+### ios upload_testflight
+```
+fastlane ios upload_testflight
+```
+上传已知的ipa包至testflight
+### ios tests
+```
+fastlane ios tests
+```
+运行单元测试和UI测试
 
 ----
 

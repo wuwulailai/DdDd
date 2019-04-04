@@ -17,6 +17,12 @@ default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
+   
+  # lane之前的操作
+  before_all do
+    ENV["FASTLANE_USER"] = "m18566210419@163.com"
+    ENV["FASTLANE_DONT_STORE_PASSWORD"] = "1"  # 是否将USER存入钥匙链，1不存入，默认存入
+  end
 
   # 打App Store包
   desc '打App Store包'
@@ -25,6 +31,7 @@ platform :ios do
     # 增加build版本号
     # increment_build_number
 
+    # 导出ipa包
     # 导出方式
     export_method = "app-store"   
 
@@ -37,14 +44,22 @@ platform :ios do
     output_name = "#{scheme_name}_#{Time.now.strftime('%Y%m%H%M%S')}.ipa"
     gym(
     	clean:true, #打包前clean项目
-		scheme:scheme_name,   #schema
-		export_method: export_method,  #导出方式
-		configuration: "Distribution", #环境
-		output_directory:output_directory, #ipa的存放目录
-		output_name: output_name, 
-		archive_path:"#{output_directory}Archive",
-		export_xcargs:"-allowProvisioningUpdates"
+	scheme:scheme_name,   #schema
+	export_method: export_method,  #导出方式
+	configuration: "Distribution", #环境
+	output_directory:output_directory, #ipa的存放目录
+	output_name: output_name, 
+	archive_path:"#{output_directory}Archive",
+	export_xcargs:"-allowProvisioningUpdates"
 	)
+
+     # 上传至app-store
+     # deliver
+     deliver(
+	force: true,           # 是否跳过HTML验证报告，默认false
+  	skip_metadata: true,    # 是否跳过上传metadata，默认false
+        skip_screenshots: true # 是否跳过上传屏幕截图，默认false
+     )
   end
  
   # 打ad-hoc包
@@ -66,11 +81,41 @@ platform :ios do
   end
 
   # 下载provisioning_profile
-  desc '下载provisioning_profile'
-  lane :adhoc_profile do
+  desc '私有任务，下载provisioning_profile通用Action'
+  lane :get_profile do |options|
+      puts options
+      ad_hoc = options[:ad_hoc] ? options[:ad_hoc] : false
+      developer_id = options[:developer_id] ? options[:developer_id] : false
+      puts options
+      case ad_hoc
+      when true
+        get_provisioning_profile(
+	adhoc: ad_hoc,
+        team_id:'R39BW89H6H',
+	output_path:'../cer'
+	)
+      else 
+         case developer_id
+         when true
+             get_provisioning_profile(
+             developer_id: developer_id,
+             team_id:'R39BW89H6H',
+	     output_path:'../cer')
+         else
+             get_provisioning_profile(
+             team_id:'R39BW89H6H',
+	     output_path:'../cer')
+         end
+      end
+     
   end
 
-
+  desc '下载所有provisioning_profile'
+  lane :all_profile do
+     get_profile
+     get_profile(ad_hoc: true)
+     get_profile(developer_id:true)
+  end
 
   # 上传ipa到iTunesConnect，发布到App Store
   desc '上传ipa到iTunesConnect，发布到App Store'
@@ -97,6 +142,19 @@ platform :ios do
   lane :snap_shot do
   end
 
+  desc '打包并上传测试版至蒲公英'
+  lane :beta_pgyer do |options|
+      puts options
+      # 增加build
+      # increment_build_number
+
+      # 编译App
+      # gym
+
+      # 上传至蒲公英
+      # pgyer app_key user_key update_description
+  end
+
   # 生成不同尺寸的icon
   desc '生成不同尺寸的icon'
   lane :app_icon do
@@ -111,6 +169,23 @@ platform :ios do
           appicon_path: appiconpath
         )
 
+  end
+
+  desc '上传已知的ipa包至testflight'
+  lane :upload_testflight do |options|
+      puts options
+      # upload_to_testflight
+  end
+
+  desc '运行单元测试和UI测试'
+  lane :tests do
+     schema_name = "DdDd"
+     run_tests(scheme: scheme_name)
+  end
+
+
+  error do |lane, exception|
+    UI.message(exception.message)
   end
 
 end
