@@ -16,11 +16,36 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios appstore
+### ios appstore_ipa
 ```
-fastlane ios appstore
+fastlane ios appstore_ipa
 ```
 Description of what the lane does
+### ios adhoc
+```
+fastlane ios adhoc
+```
+
+### ios adhoc_profile
+```
+fastlane ios adhoc_profile
+```
+
+### ios deploy
+```
+fastlane ios deploy
+```
+
+### ios add_device
+```
+fastlane ios add_device
+```
+
+### ios app_icon
+```
+fastlane ios app_icon
+```
+
 
 ----
 

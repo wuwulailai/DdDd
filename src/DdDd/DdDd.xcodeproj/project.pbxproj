@@ -71,6 +71,7 @@
 		26F76295212AE708001A8435 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F76293212AE708001A8435 /* LaunchScreen.storyboard */; };
 		26F762A0212AE708001A8435 /* DdDdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F7629F212AE708001A8435 /* DdDdTests.swift */; };
 		26F762AB212AE708001A8435 /* DdDdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F762AA212AE708001A8435 /* DdDdUITests.swift */; };
+		56ABBB352254DAAE0011725F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56ABBB342254DAAE0011725F /* Assets.xcassets */; };
 		5E5A5E73A70B73B34FDD9BA2 /* Pods_DdDd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1F4D68796A687E8AC83264 /* Pods_DdDd.framework */; };
 /* End PBXBuildFile section */
 
@@ -211,6 +212,7 @@
 		26F762A6212AE708001A8435 /* DdDdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DdDdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F762AA212AE708001A8435 /* DdDdUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdDdUITests.swift; sourceTree = "<group>"; };
 		26F762AC212AE708001A8435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56ABBB342254DAAE0011725F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C0F7BEBB0B3843BCBE8123F /* Pods-DdDd.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DdDd.distribution.xcconfig"; path = "../Pods/Target Support Files/Pods-DdDd/Pods-DdDd.distribution.xcconfig"; sourceTree = "<group>"; };
 		7680DBAA2712228F177FCDFE /* Pods-DdDd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DdDd.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DdDd/Pods-DdDd.debug.xcconfig"; sourceTree = "<group>"; };
 		C5F7FCA5AE674237B96C5B81 /* Pods-DdDd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DdDd.release.xcconfig"; path = "../Pods/Target Support Files/Pods-DdDd/Pods-DdDd.release.xcconfig"; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 		26F762BE212AF85B001A8435 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				56ABBB342254DAAE0011725F /* Assets.xcassets */,
 				266D2328212C492D00157BCB /* GuideImages */,
 				26F76291212AE708001A8435 /* Images.xcassets */,
 			);
@@ -794,6 +797,7 @@
 				266D2331212C492D00157BCB /* guideImage2.jpg in Resources */,
 				26720AA3214280E1006BDE1A /* NoDataOverlayerView.xib in Resources */,
 				26F76292212AE708001A8435 /* Images.xcassets in Resources */,
+				56ABBB352254DAAE0011725F /* Assets.xcassets in Resources */,
 				266D2333212C492D00157BCB /* guideImage4.jpg in Resources */,
 				26F76290212AE706001A8435 /* Main.storyboard in Resources */,
 				266D2332212C492D00157BCB /* guideImage3.jpg in Resources */,
@@ -1037,7 +1041,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.gg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.log.gg;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -1067,7 +1071,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.gg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.log.gg;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -1201,7 +1205,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R39BW89H6H;
 				GCC_PREFIX_HEADER = /Users/wubaolai/Develop/Study/DdDd/src/DdDd/DdDd/Core/PrefixHeader.pch;
 				INFOPLIST_FILE = DdDd/Info.plist;
@@ -1212,6 +1217,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.gg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = gg_Distribution;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1287,7 +1293,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.gg;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.log.gg;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -1438,7 +1444,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R39BW89H6H;
 				GCC_PREFIX_HEADER = /Users/wubaolai/Develop/Study/DdDd/src/DdDd/DdDd/Core/PrefixHeader.pch;
 				INFOPLIST_FILE = DdDd/Info.plist;
@@ -1449,6 +1455,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.gg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = gg_Development;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1460,7 +1467,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = R39BW89H6H;
 				GCC_PREFIX_HEADER = /Users/wubaolai/Develop/Study/DdDd/src/DdDd/DdDd/Core/PrefixHeader.pch;
 				INFOPLIST_FILE = DdDd/Info.plist;
@@ -1471,6 +1479,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.gg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = gg_Distribution;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

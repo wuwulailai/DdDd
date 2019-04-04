@@ -19,6 +19,7 @@ platform :ios do
   desc "Description of what the lane does"
 
   # 打App Store包
+  desc '打App Store包'
   lane :appstore_ipa do
     # add actions here: https://docs.fastlane.tools/actions
     # 增加build版本号
@@ -47,7 +48,8 @@ platform :ios do
   end
  
   # 打ad-hoc包
-  lane: adhoc do
+  desc '打ad-hoc包'
+  lane :adhoc do
 
     # 导出方式
     export_method = "app-store"  
@@ -64,13 +66,15 @@ platform :ios do
   end
 
   # 下载provisioning_profile
-  lane: adhoc_profile do
+  desc '下载provisioning_profile'
+  lane :adhoc_profile do
   end
 
 
 
-  # 上传ipa到iTunesConnect
-  lane: upload do 
+  # 上传ipa到iTunesConnect，发布到App Store
+  desc '上传ipa到iTunesConnect，发布到App Store'
+  lane :deploy do 
 
     metadata_path = "./metadata"
 
@@ -83,23 +87,30 @@ platform :ios do
   end
 
   # 添加Devices到AppleDeveloper
-  lane: add_device do
+  lane :add_device do
     register_devices(
         devices_file: "./devices.txt"
         )
   end
 
+  # 生成截图
+  lane :snap_shot do
+  end
+
   # 生成不同尺寸的icon
-  lane: generate_icon do
+  desc '生成不同尺寸的icon'
+  lane :app_icon do
 
-    appiconfile = './AppIcon.png'
+    puts '生成不同尺寸的icon'
+    appiconfile = 'DdDd/DdDd/Assets/AppIcon.png'
 
-    appiconpath = 'DdDd/Assets.xcassets'
+    appiconpath = 'DdDd/DdDd/Assets/Assets.xcassets'
     appicon(
           appicon_image_file: appiconfile,
           appicon_devices: [:iphone, :ios_marketing],
           appicon_path: appiconpath
         )
+
   end
 
 end

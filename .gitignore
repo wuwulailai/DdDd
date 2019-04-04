@@ -2,3 +2,4 @@ src/Pods
 src/Podfile.lock
 src/DdDd.xcworkspace/xcuserdata/
 build/
+DdDd/DdDd.xcodeproj/xcuserdata
