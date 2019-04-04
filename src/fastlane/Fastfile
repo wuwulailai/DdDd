@@ -21,6 +21,7 @@ platform :ios do
   # lane之前的操作
   before_all do
     ENV["FASTLANE_USER"] = "m18566210419@163.com"
+    # ENV["FASTLANE_PASSWORD"] = "***********"
     ENV["FASTLANE_DONT_STORE_PASSWORD"] = "1"  # 是否将USER存入钥匙链，1不存入，默认存入
   end
 
@@ -85,7 +86,7 @@ platform :ios do
   lane :get_profile do |options|
       puts options
       ad_hoc = options[:ad_hoc] ? options[:ad_hoc] : false
-      developer_id = options[:developer_id] ? options[:developer_id] : false
+      development = options[:development] ? options[:development] : false
       puts options
       case ad_hoc
       when true
@@ -95,10 +96,10 @@ platform :ios do
 	output_path:'../cer'
 	)
       else 
-         case developer_id
+         case development
          when true
              get_provisioning_profile(
-             developer_id: developer_id,
+             development: development,
              team_id:'R39BW89H6H',
 	     output_path:'../cer')
          else
@@ -114,7 +115,7 @@ platform :ios do
   lane :all_profile do
      get_profile
      get_profile(ad_hoc: true)
-     get_profile(developer_id:true)
+     get_profile(development:true)
   end
 
   # 上传ipa到iTunesConnect，发布到App Store
