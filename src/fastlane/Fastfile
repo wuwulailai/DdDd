@@ -44,7 +44,7 @@ platform :ios do
     # 导出名称
     output_name = "#{scheme_name}_#{Time.now.strftime('%Y%m%H%M%S')}.ipa"
     gym(
-    	clean:true, #打包前clean项目
+    	clean:true, # 打包前clean项目
 	scheme:scheme_name,   #schema
 	export_method: export_method,  #导出方式
 	configuration: "Distribution", #环境
@@ -67,14 +67,17 @@ platform :ios do
   desc '打ad-hoc包'
   lane :adhoc do
 
-    # 导出方式
-    export_method = "app-store"  
+    # sigh
 
-    scheme_name = "DdDd"
+    # 导出方式
+    export_method = "ad-hoc"  # 打包方式
+
+    scheme_name = "DdDd"  # 工程要打包的项目
     # build_app是gym的别名,可以换成gym
-    build_app(
-        schema: scheme_name,
-        export_method: export_method
+    gym(
+        scheme: scheme_name,
+        export_method: export_method,
+	output_directory: './build'
     )
 
     # 上传到蒲公英

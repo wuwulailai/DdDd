@@ -71,6 +71,7 @@
 		26F76295212AE708001A8435 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F76293212AE708001A8435 /* LaunchScreen.storyboard */; };
 		26F762A0212AE708001A8435 /* DdDdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F7629F212AE708001A8435 /* DdDdTests.swift */; };
 		26F762AB212AE708001A8435 /* DdDdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F762AA212AE708001A8435 /* DdDdUITests.swift */; };
+		560F4BC622BAF0C100AA961B /* UserDefaultSettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560F4BC522BAF0C100AA961B /* UserDefaultSettable.swift */; };
 		56ABBB352254DAAE0011725F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56ABBB342254DAAE0011725F /* Assets.xcassets */; };
 		5E5A5E73A70B73B34FDD9BA2 /* Pods_DdDd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1F4D68796A687E8AC83264 /* Pods_DdDd.framework */; };
 /* End PBXBuildFile section */
@@ -212,6 +213,7 @@
 		26F762A6212AE708001A8435 /* DdDdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DdDdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26F762AA212AE708001A8435 /* DdDdUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdDdUITests.swift; sourceTree = "<group>"; };
 		26F762AC212AE708001A8435 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		560F4BC522BAF0C100AA961B /* UserDefaultSettable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultSettable.swift; sourceTree = "<group>"; };
 		56ABBB342254DAAE0011725F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C0F7BEBB0B3843BCBE8123F /* Pods-DdDd.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DdDd.distribution.xcconfig"; path = "../Pods/Target Support Files/Pods-DdDd/Pods-DdDd.distribution.xcconfig"; sourceTree = "<group>"; };
 		7680DBAA2712228F177FCDFE /* Pods-DdDd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DdDd.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-DdDd/Pods-DdDd.debug.xcconfig"; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		266D2327212C468400157BCB /* AL(Application Layer) */ = {
 			isa = PBXGroup;
 			children = (
+				560F4BC522BAF0C100AA961B /* UserDefaultSettable.swift */,
 				26720A7A214280E0006BDE1A /* Album */,
 				26247C13212D9ACC001E5A0C /* UIConstants */,
 				266D2342212D46FB00157BCB /* Extension */,
@@ -931,6 +934,7 @@
 				266D2325212C467900157BCB /* PageControl.swift in Sources */,
 				266D2324212C467900157BCB /* GifImage.swift in Sources */,
 				266D2314212C1A1B00157BCB /* DashboardViewController.swift in Sources */,
+				560F4BC622BAF0C100AA961B /* UserDefaultSettable.swift in Sources */,
 				266D231F212C228500157BCB /* MineViewController.swift in Sources */,
 				266D2316212C1A3100157BCB /* NewFeatureViewController.swift in Sources */,
 				26247C12212D9A23001E5A0C /* UIColorExtensions.swift in Sources */,
@@ -1479,7 +1483,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xingchen.gg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = gg_Distribution;
+				PROVISIONING_PROFILE_SPECIFIER = "com.xingchen.gg AdHoc";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

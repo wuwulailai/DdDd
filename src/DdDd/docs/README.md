@@ -17,6 +17,6 @@ Coordinators解决了导航/路由的问题
 RxSwift让我们的代码清晰
 
 
-主题采用RxSwift函数式编程
+主体采用RxSwift函数式编程
 
 
